@@ -31,6 +31,8 @@ const funcionEleccionProducto = (productoElegido) => parseInt(prompt(`Ingresaste
 
 const descuento = (total) => total * 0.9;
 
+const alertTotal = (total) => alert(`Tu total hasta ahora es de ${total}`);
+
 
 
 // COMIENZO DE INTERACCIÓN CON EL USUARIO
@@ -45,23 +47,22 @@ while (ingresoPrimerProducto !== "salir") {
 
     if (ingresoPrimerProducto == "leche de cacahuate") {
         let cantidad = funcionEleccionProducto(lecheDeCacahuate.nombre);
-
         total += cantidad * lecheDeCacahuate.precio;
-        alert(`Tu total hasta ahora es de ${total}$.`);
+        alertTotal(total);
         listaDeProductosUsuario.push([lecheDeCacahuate.nombre, cantidad]);
+
     } else if (ingresoPrimerProducto == "castañas de caju" || ingresoPrimerProducto == "castañas de cajú") {
         let cantidad = funcionEleccionProducto(castaniasDeCaju.nombre);
-
         total += cantidad * castaniasDeCaju.precio;
-        alert(`Tu total hasta ahora es de ${total}$.`);
+        alertTotal(total);
         listaDeProductosUsuario.push([castaniasDeCaju.nombre, cantidad]);
-    }
-    else if (ingresoPrimerProducto == "barra de coco") {
-        let cantidad = funcionEleccionProducto(barraCoco.nombre);
 
+    } else if (ingresoPrimerProducto == "barra de coco") {
+        let cantidad = funcionEleccionProducto(barraCoco.nombre);
         total += cantidad * barraCoco.precio;
-        alert(`Tu total hasta ahora es de ${total}$.`);
+        alertTotal(total);
         listaDeProductosUsuario.push([barraCoco.nombre, cantidad]);
+
     } else {
         if (total > 0) {
             alert("Muchas gracias por confiar en nosotros.")
@@ -78,6 +79,9 @@ while (ingresoPrimerProducto !== "salir") {
                     alert(`El total con el descuento del 10% incluido es de ${descuento(total)}`);
                 }
             }
+
+            alert(`El total es: $${total}`);
+
         } else {
             alert("No compraste nada :(")
         }
@@ -85,6 +89,8 @@ while (ingresoPrimerProducto !== "salir") {
 }
 
 console.log(listaDeProductosUsuario);
+
+
 
 
 
